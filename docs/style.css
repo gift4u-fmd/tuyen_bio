@@ -12,7 +12,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12vh 6vw;
+  padding-top: 12vh;
+  padding-right: 6vw;
+  padding-bottom: 5vh;
+  padding-left: 6vw;
 }
 
 .card {
@@ -60,7 +63,7 @@ body {
   flex-direction: column;
   align-items: center;
   z-index: 2; /* ✅ Avatar & logo nổi trên hoa */
-  /* margin-top: 5vh; ✅ Thêm dòng này để đẩy cụm xuống */ 
+  margin-top: 2vh;/* ✅ Thêm dòng này để đẩy cụm xuống */ 
   /* margin-bottom: 2vh; */
 }
 
@@ -75,6 +78,8 @@ body {
   opacity: 1;
   transform: translateY(30px);
   transition: all 0.8s ease;
+  margin-top: 1vh;
+  margin-bottom: 5vh;
 }
 
 .avatar.show {
@@ -87,7 +92,10 @@ body {
   max-width: 60px;
   height: auto;
   /* margin-top: 1vh;  */
-  opacity: 0.9;
+  opacity: 1;
+  position: absolute;
+  top: 16.5vh;      /*     hoặc -1vh để nâng lên nếu cần */
+  z-index: 3;       /* logo nằm trên avatar */
 }
 
 .f-wrapper {
@@ -149,7 +157,6 @@ body {
   }
 }
 
-
 /* ✅ Font cho tên - dùng Merriweather */
 .name {
   margin-top: 3vh;
@@ -184,7 +191,7 @@ body {
 .desc2 {
   font-size: clamp(0.95rem, 3vw, 1.2rem);
   margin-top: 1vh;
-  margin-bottom: 6vh;
+  margin-bottom: 4vh;
   color: #f0eaea;
   font-family: 'Lora', serif;
   font-weight: 600;
@@ -192,7 +199,7 @@ body {
 
 /* 📸 My Uni Journey Gallery */
 .photo-gallery {
-  margin: 5vh 0;
+  margin: 3vh 0;
   text-align: center;
 }
 
@@ -213,7 +220,7 @@ body {
 
 .gallery-title {
   position: absolute;
-  top: 31%;
+  top: 30.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Playfair Display', serif;
@@ -229,13 +236,14 @@ body {
   justify-content: center;
   gap: 4vw;
   padding: 0 4vw;
+  margin-top: 4vh;
 }
 
 .photo {
   padding: 0;
   background: none;
   border: none;
-  transform: rotate(var(--rotate));
+  transform: rotate(var(--rotate)) translateY(0);
   transition: transform 0.3s ease;
   position: relative;
   border-radius: 8px;
@@ -243,6 +251,8 @@ body {
   border: 6px solid #fff;
   width: 28vw;
   max-width: 130px;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .photo img {
@@ -289,6 +299,19 @@ body {
   height: 28px;
   transition: transform 0.3s ease;
   pointer-events: none;
+}
+
+@keyframes appearFromVoid {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotate(var(--rotate)) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(var(--rotate)) translateY(0);
+  }
 }
 
 .lotus-right {

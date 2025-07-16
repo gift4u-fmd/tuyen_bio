@@ -58,9 +58,6 @@
         </svg>
       </button>
       
-      <!-- 🌟 Rope Decorative Image -->
-      <!-- <img src="assets/rope.svg" alt="Rope" class="rope-decoration" /> -->
-      
       <!-- Phần chứa ảnh (ẩn lúc đầu) -->
       <div class="photo-wrapper hidden" id="galleryPhotos">
         <div class="photo" style="--rotate: -7deg"><img src="./assets/gallery/1.jpg" alt="Journey 1" /></div>
@@ -88,17 +85,26 @@
   const icon = document.getElementById("toggleIcon"); // ✅ Khai báo icon SVG
   const card = document.querySelector(".card");
 
-  btn.addEventListener("click", () => {
-    gallery.classList.toggle("hidden");
-    card.classList.toggle("gallery-collapsed");
+btn.addEventListener("click", () => {
+  gallery.classList.toggle("hidden");
+  card.classList.toggle("gallery-collapsed");
 
-    if (gallery.classList.contains("hidden")) {
-      icon.setAttribute("d", "M7 10l5 5 5-5z"); // mũi tên xuống
-      icon.innerHTML = '<path d="M7 10l5 5 5-5z"/>';
-    } else {
-      icon.innerHTML = '<path d="M7 14l5-5 5 5z"/>'; // mũi tên lên
-    }
-  });
+  if (gallery.classList.contains("hidden")) {
+    icon.innerHTML = '<path d="M7 10l5 5 5-5z"/>';
+  } 
+  else {
+    icon.innerHTML = '<path d="M7 14l5-5 5 5z"/>';
+
+    // 👉 Thêm hiệu ứng xuất hiện dần từ trên xuống dưới
+    const photos = gallery.querySelectorAll(".photo");
+    photos.forEach((photo, i) => {
+      photo.style.animation = "none";
+      photo.offsetHeight; // Force reflow
+      photo.style.animation = `appearFromVoid 2s ease ${i * 0.4}s forwards`;
+    });
+  }
+});
+
 
   // 👉 Mặc định ban đầu thêm class gallery-collapsed vì gallery đang ẩn
   window.addEventListener("DOMContentLoaded", () => {
