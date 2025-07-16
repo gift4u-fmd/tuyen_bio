@@ -1,0 +1,341 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('assets/bg.png') center center / cover no-repeat;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12vh 6vw;
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding-top: 5vh;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  overflow: visible;
+}
+
+/* ✅ Thêm lớp content để giữ khoảng cách bên trong */
+.content {
+  padding: 0 6vw 6vh; /* trái, phải, và đáy */
+  position: relative;
+  z-index: 2;
+}
+
+.hat-on-card {
+  position: absolute;
+  top: -36px;         /* Lồi ra ngoài top của card */
+  left: 20%;
+  transform: translateX(-50%) rotate(-5deg);
+  width: 135px;
+  z-index: 4;
+  opacity: 0.9;
+}
+
+.avatar-flower-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2; /* ✅ Avatar & logo nổi trên hoa */
+  /* margin-top: 5vh; ✅ Thêm dòng này để đẩy cụm xuống */ 
+  /* margin-bottom: 2vh; */
+}
+
+.avatar {
+  width: 40vw;
+  max-width: 160px;
+  min-width: 100px;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  border: 3px solid #ffffff;
+  object-fit: cover;
+  opacity: 1;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.avatar.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.avatar-logo {
+  width: 40%;
+  max-width: 60px;
+  height: auto;
+  /* margin-top: 1vh;  */
+  opacity: 0.9;
+}
+
+.f-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.f {
+  position: relative;
+}
+
+.flower {
+  position: absolute;
+  top: calc(100% - 0.1vh); /* xích xuống dưới avatar một chút */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1; /* nằm sau avatar */
+  pointer-events: none;
+}
+
+.f-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.f {
+  position: relative;
+}
+
+/* Những cánh hoa */
+.flower__leaf {
+  position: absolute;
+  left: 50%;
+  bottom: 2vmin;
+  transform: translateX(-50%);
+  width: 40vmin;
+  height: auto;
+  transform-origin: center bottom;
+  animation: open-flower 2s 0.6s backwards;
+  z-index: 1;
+}
+
+.flower__leaf--2 { transform: translateX(-65%)  rotate(-10deg); bottom: 1vmin; }
+.flower__leaf--3 { transform: translateX(-100%) rotate(-50deg); bottom: 2.5vmin;  width: 20vmin;}
+.flower__leaf--4 { transform: translateX(-312%) rotate(40deg);  bottom: 34vmin;   width: 10vmin;}
+.flower__leaf--5 { transform: translateX(-35%)  rotate(10deg);  bottom: 1vmin; }
+.flower__leaf--6 { transform: translateX(0%)    rotate(50deg);  bottom: 2vmin;    width: 20vmin;}
+.flower__leaf--7 { transform: translateX(210%)  rotate(-40deg); bottom: 34vmin;   width: 10vmin;}
+
+@keyframes open-flower {
+  0% {
+    transform: translateX(-50%) rotate(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* ✅ Font cho tên - dùng Merriweather */
+.name {
+  margin-top: 3vh;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: #ffffff;
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+}
+
+.name-line {
+  width: 150px;
+  margin: 8px auto 0;
+}
+
+.name-line img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.8; /* tuỳ chỉnh độ trong suốt */
+}
+
+/* ✅ Dòng "FTU Alumni" */
+.desc1 {
+  font-size: clamp(0.95rem, 3vw, 1.2rem);
+  margin-top: 3vh;
+  color: #f0eaea;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+}
+
+/* ✅ Dòng "Class K60C" */
+.desc2 {
+  font-size: clamp(0.95rem, 3vw, 1.2rem);
+  margin-top: 1vh;
+  margin-bottom: 6vh;
+  color: #f0eaea;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+}
+
+/* 📸 My Uni Journey Gallery */
+.photo-gallery {
+  margin: 5vh 0;
+  text-align: center;
+}
+
+.gallery-title-ribbon {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ribbon-img {
+  width: 260px;
+  height: auto;
+  display: block;
+}
+
+.gallery-title {
+  position: absolute;
+  top: 31%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  color: #ffffffb6;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.photo-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4vw;
+  padding: 0 4vw;
+}
+
+.photo {
+  padding: 0;
+  background: none;
+  border: none;
+  transform: rotate(var(--rotate));
+  transition: transform 0.3s ease;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 6px solid #fff;
+  width: 28vw;
+  max-width: 130px;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✨ Quan trọng: đảm bảo ảnh luôn lấp đầy khung */
+  border-radius: 4px;
+  display: block;
+}
+
+.photo:hover {
+  transform: scale(1.08) rotate(0deg);
+  z-index: 10;
+}
+
+.hidden {
+  display: none;
+}
+
+.gallery-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -2vh auto 2vh;;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
+  transition: all 0.3s ease;
+}
+
+.gallery-toggle:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.gallery-toggle svg {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.lotus-right {
+  position: absolute;
+  right: 0;
+  bottom: 18%; /* ⬅ chỉnh cao/thấp tại đây */
+  width: 170px; /* ⬅ điều chỉnh kích thước */
+  opacity: 0.7;
+  z-index: 0; /* ⬅ thấp hơn tất cả */
+  pointer-events: none;
+}
+
+.lotus-left {
+  position: absolute;
+  left: 0;
+  bottom: 30%; /* ⬅ chỉnh cao/thấp tại đây */
+  width: 120px; /* ⬅ điều chỉnh kích thước */
+  opacity: 0.5;
+  z-index: 0; /* ⬅ thấp hơn tất cả */
+  pointer-events: none;
+}
+
+/* Mặc định ẩn hình trái/phải khi chưa xổ */
+.lotus-left,
+.lotus-right {
+  opacity: 0;
+  /* transform: scale(0.5); */
+  /* transition: all 0.4s ease; */
+}
+
+/* Khi gallery xổ ra thì hiện 2 hình lại với hiệu ứng mượt */
+.card:not(.gallery-collapsed) .lotus-left,
+.card:not(.gallery-collapsed) .lotus-right {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.lotus-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0.4;
+  z-index: 1;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}

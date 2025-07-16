@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyen Minh Tuyen</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Merriweather:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="card">
+    <img src="./assets/hat.svg" alt="Graduation Hat" class="hat-on-card" />
+    <div class="content">
+      <div class="avatar-flower-wrap">
+        <div class="flower">
+          <div class="f-wrapper">
+            <div class="f">
+              <img class="flower__leaf flower__leaf--2" src="./assets/petal2.svg" alt="petal" />
+              <img class="flower__leaf flower__leaf--3" src="./assets/petal3.svg" alt="petal" />
+              <img class="flower__leaf flower__leaf--4" src="./assets/petal4.svg" alt="petal" />
+              <img class="flower__leaf flower__leaf--5" src="./assets/petal5.svg" alt="petal" />
+              <img class="flower__leaf flower__leaf--6" src="./assets/petal6.svg" alt="petal" />
+              <img class="flower__leaf flower__leaf--7" src="./assets/petal7.svg" alt="petal" />
+            </div>
+          </div>
+        </div>
+        <div class="avatar-group">
+          <img class="avatar" src="./assets/mt.jpg" alt="Avatar" />
+          <img class="avatar-logo" src="./assets/ftu-logo.png" alt="Logo dưới avatar" />
+        </div>
+      </div>
+
+      <!-- ✅ Tên (font Merriweather) -->
+      <h1 class="name">Nguyễn Minh Tuyền</h1>
+      <div class="name-line">
+        <img src="./assets/line.svg" alt="Decorative line" />
+      </div>
+
+
+      <!-- ✅ Tách dòng mô tả, dùng font Lora -->
+      <p class="desc1">FTU Alumni</p>
+      <p class="desc2">K60C</p>
+
+      <!-- 📸 My Uni Journey Gallery -->
+      <div class="photo-gallery">
+        <div class="gallery-title-ribbon">
+          <img src="./assets/ribbon.svg" alt="Gallery Title Ribbon" class="ribbon-img" />
+          <h2 class="gallery-title">My Uni Journey</h2>
+        </div>
+      
+      <!-- Nút bấm toggle -->
+      <button id="toggleGallery" class="gallery-toggle" aria-label="Toggle Gallery">
+        <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#b71b21" viewBox="0 0 24 24">
+          <path d="M7 10l5 5 5-5z" />
+        </svg>
+      </button>
+      
+      <!-- 🌟 Rope Decorative Image -->
+      <!-- <img src="assets/rope.svg" alt="Rope" class="rope-decoration" /> -->
+      
+      <!-- Phần chứa ảnh (ẩn lúc đầu) -->
+      <div class="photo-wrapper hidden" id="galleryPhotos">
+        <div class="photo" style="--rotate: -7deg"><img src="./assets/gallery/1.jpg" alt="Journey 1" /></div>
+        <div class="photo" style="--rotate: 5deg"><img src="./assets/gallery/2.jpg" alt="Journey 2" /></div>
+        <div class="photo" style="--rotate: -3deg"><img src="./assets/gallery/3.jpg" alt="Journey 3" /></div>
+        <div class="photo" style="--rotate: 8deg"><img src="./assets/gallery/4.jpg" alt="Journey 4" /></div>
+        <div class="photo" style="--rotate: -6deg"><img src="./assets/gallery/5.jpg" alt="Journey 5" /></div>
+        <div class="photo" style="--rotate: 4deg"><img src="./assets/gallery/6.jpg" alt="Journey 6" /></div>
+        <div class="photo" style="--rotate: -5deg"><img src="./assets/gallery/7.jpg" alt="Journey 7" /></div>
+        <div class="photo" style="--rotate: 6deg"><img src="./assets/gallery/8.jpg" alt="Journey 8" /></div>
+        <div class="photo" style="--rotate: -4deg"><img src="./assets/gallery/9.jpg" alt="Journey 9" /></div>
+        <div class="photo" style="--rotate: 7deg"><img src="./assets/gallery/10.jpg" alt="Journey 10" /></div>
+      </div>
+    </div>
+
+    </div>
+    <img class="lotus-right" src="./assets/lotus2.svg" alt="Lotus Side Decoration" />
+    <img class="lotus-left" src="./assets/lotus3.svg" alt="Lotus Side Decoration" />
+    <img class="lotus-bottom" src="./assets/lotus.svg" alt="Lotus" />
+  </div>
+
+<script>
+  const gallery = document.getElementById("galleryPhotos");
+  const btn = document.getElementById("toggleGallery");
+  const icon = document.getElementById("toggleIcon"); // ✅ Khai báo icon SVG
+  const card = document.querySelector(".card");
+
+  btn.addEventListener("click", () => {
+    gallery.classList.toggle("hidden");
+    card.classList.toggle("gallery-collapsed");
+
+    if (gallery.classList.contains("hidden")) {
+      icon.setAttribute("d", "M7 10l5 5 5-5z"); // mũi tên xuống
+      icon.innerHTML = '<path d="M7 10l5 5 5-5z"/>';
+    } else {
+      icon.innerHTML = '<path d="M7 14l5-5 5 5z"/>'; // mũi tên lên
+    }
+  });
+
+  // 👉 Mặc định ban đầu thêm class gallery-collapsed vì gallery đang ẩn
+  window.addEventListener("DOMContentLoaded", () => {
+    const avatar = document.querySelector(".avatar");
+    if (avatar) avatar.classList.add("show");
+    card.classList.add("gallery-collapsed");
+  });
+</script>
+
+
+
+</body>
+</html>
