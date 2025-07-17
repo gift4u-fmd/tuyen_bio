@@ -12,9 +12,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 12vh;
+  padding-top: 8vh;
   padding-right: 6vw;
-  padding-bottom: 5vh;
+  padding-bottom: 10vh;
   padding-left: 6vw;
 }
 
@@ -22,7 +22,7 @@ body {
   position: relative;
   background: rgba(255, 255, 255, 0.25);
   border-radius: 20px;
-  padding-top: 5vh;
+  padding-top: 4vh;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -35,7 +35,7 @@ body {
 
 /* ✅ Thêm lớp content để giữ khoảng cách bên trong */
 .content {
-  padding: 0 6vw 6vh; /* trái, phải, và đáy */
+  padding: 0 6vw 8vh; /* trái, phải, và đáy */
   position: relative;
   z-index: 2;
 }
@@ -88,14 +88,15 @@ body {
 }
 
 .avatar-logo {
-  width: 40%;
+  position: absolute;
+  bottom: 1%; /* 👈 Cố định vị trí theo avatar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18vw;
   max-width: 60px;
   height: auto;
-  /* margin-top: 1vh;  */
-  opacity: 1;
-  position: absolute;
-  top: 16.5vh;      /*     hoặc -1vh để nâng lên nếu cần */
-  z-index: 3;       /* logo nằm trên avatar */
+  z-index: 3;
+  pointer-events: none;
 }
 
 .f-wrapper {
@@ -220,11 +221,11 @@ body {
 
 .gallery-title {
   position: absolute;
-  top: 30.5%;
+  top: 31%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  font-size: clamp(1rem, 3.9vw, 1.4rem);
   color: #ffffffb6;
   white-space: nowrap;
   z-index: 2;
